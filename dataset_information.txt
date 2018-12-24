@@ -1,0 +1,4 @@
+dataset1_01: Only good road, no other attributes
+dataset1_02: All badroad (cracks and potholes)
+dataset1_03: Only cracks (good road and bad road)
+dataset1_04: Only potholes (good road and bad road)
