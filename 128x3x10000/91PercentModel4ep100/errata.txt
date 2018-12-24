@@ -1,0 +1,35 @@
+Data set:
+	good road: 4000
+	bad road: 2000
+patience Gleen's 10 
+Time need to run again secs
+
+def kerasModel4(inputShape):
+        model = Sequential()
+        model.add(Convolution2D(16, 8, 8, subsample=(4, 4), border_mode='valid', input_shape=inputShape))
+        # model.add(ELU())
+        model.add(Activation('relu'))
+        model.add(Convolution2D(32, 5, 5, border_mode="same"))
+        # model.add(ELU())
+        model.add(Activation('relu'))
+        # model.add(Convolution2D(64, 5, 5, subsample=(2, 2), border_mode="same"))
+        # model.add(Flatten())
+        model.add(GlobalAveragePooling2D())
+        # model.add(Dropout(.2))
+        # model.add(ELU())
+        # model.add(Activation('relu'))
+        # model.add(Dense(512,kernel_regularizer=regularizers.l2(0.00005)))
+
+        model.add(Dense(1024))
+        model.add(Dropout(.5))
+        # model.add(ELU())
+        model.add(Activation('relu'))
+
+        model.add(Dense(256))
+        model.add(Dropout(.5))
+        # model.add(ELU())
+        model.add(Activation('relu'))
+
+        model.add(Dense(2))
+        model.add(Activation('softmax'))
+        return model
